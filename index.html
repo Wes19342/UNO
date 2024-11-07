@@ -7,17 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Start Screen -->
     <div id="start-screen">
-        <h1>Welcome to UNO!</h1>
+        <h1>Welcome to Mobile UNO!</h1>
         <p>Select the number of players:</p>
         <button onclick="startGame(2)">2 Players</button>
         <button onclick="startGame(3)">3 Players</button>
     </div>
 
+    <!-- Game Container -->
     <div id="game-container" style="display: none;">
         <h1>UNO Game</h1>
-        <p id="game-instructions">Match the color or number of the discard pile card. Use special cards strategically!</p>
+        <div id="game-instructions">
+            <p>Match the color or number of the discard pile card. Use special cards strategically!</p>
+        </div>
 
+        <!-- Player Hands -->
         <div id="players-container">
             <div id="player-1" class="player">
                 <h2>Player 1</h2>
@@ -33,13 +38,16 @@
             </div>
         </div>
 
+        <!-- Game Board with Discard Pile and Controls -->
         <div id="game-board">
             <div id="discard-pile">Discard Pile</div>
             <button id="draw-card">Draw Card</button>
         </div>
         
+        <!-- Next Turn Button -->
         <button id="next-turn">Next Turn</button>
 
+        <!-- Game Log -->
         <div id="game-log">
             <h3>Game Log</h3>
             <div id="log-content"></div>
