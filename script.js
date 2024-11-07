@@ -94,14 +94,16 @@ function updateUI() {
         hand.forEach((card, index) => {
             const cardElement = document.createElement("div");
             cardElement.classList.add("card", card.color);
-            cardElement.innerText = `${card.color[0].toUpperCase()} ${card.value}`;
+            cardElement.innerHTML = `<span>${card.value}</span>`;
             cardElement.onclick = () => playCard(index);
             handContainer.appendChild(cardElement);
         });
     });
-    document.getElementById("discard-pile").innerText =
-        `Discard Pile: ${discardPile[discardPile.length - 1].color} ${discardPile[discardPile.length - 1].value}`;
+    const topCard = discardPile[discardPile.length - 1];
+    document.getElementById("discard-pile").innerHTML =
+        `<div class="card ${topCard.color}"><span>${topCard.value}</span></div>`;
 }
 
+// Event Listeners
 document.getElementById("draw-card").onclick = drawCard;
 document.getElementById("next-turn").onclick = switchTurn;
