@@ -10,7 +10,9 @@ body {
     background-color: #2d3e50;
     color: #fff;
     margin: 0;
+    padding: 10px;
     height: 100vh;
+    overflow-y: auto;
 }
 
 #game-container, #start-screen {
@@ -21,50 +23,60 @@ body {
 }
 
 #start-screen button, #next-turn, #draw-card {
-    padding: 10px 20px;
-    margin: 5px;
+    padding: 12px 24px;
+    margin: 10px;
     border: none;
     background-color: #f5c000;
     color: #333;
     font-weight: bold;
+    font-size: 1em;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+h1, h2, h3 {
+    font-size: 1.2em;
+    margin: 0.5em 0;
 }
 
 #players-container {
     display: flex;
     flex-direction: column;
-    margin-top: 15px;
+    gap: 15px;
+    margin-top: 10px;
 }
 
 .player {
-    margin: 10px;
+    margin: 5px 0;
 }
 
 .hand {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 5px;
     margin-top: 5px;
 }
 
 .card {
-    width: 50px;
-    height: 70px;
+    width: 60px;
+    height: 90px;
     background-color: #f5c000;
     border-radius: 5px;
-    margin: 5px;
     font-weight: bold;
     color: #333;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    font-size: 0.9em;
     transition: transform 0.2s;
+    text-align: center;
 }
 
 .card:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .card.red {
@@ -88,18 +100,20 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
 }
 
 #discard-pile {
-    width: 60px;
-    height: 90px;
+    width: 70px;
+    height: 100px;
     background-color: #444;
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     color: #fff;
-    margin: 10px;
+    font-size: 0.9em;
 }
 
 #game-log {
@@ -113,4 +127,5 @@ body {
     background-color: #333;
     padding: 10px;
     border-radius: 5px;
+    font-size: 0.85em;
 }
