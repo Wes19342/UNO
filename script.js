@@ -6,14 +6,12 @@ let players = [];
 let currentPlayer = 0;
 let gameOver = false;
 
-// Initialize the game with player count
 function startGame(playerCount) {
     document.getElementById("start-screen").style.display = "none";
     document.getElementById("game-container").style.display = "block";
     initializeGame(playerCount);
 }
 
-// Game setup functions
 function initializeGame(playerCount = 2) {
     createDeck();
     shuffleDeck();
@@ -50,7 +48,6 @@ function dealInitialCards() {
     discardPile.push(deck.pop());
 }
 
-// Draw a card and add to player's hand
 function drawCard() {
     if (gameOver) return;
     const card = deck.pop();
@@ -59,7 +56,6 @@ function drawCard() {
     updateUI();
 }
 
-// Play a card from the player's hand
 function playCard(cardIndex) {
     if (gameOver) return;
     const card = players[currentPlayer][cardIndex];
@@ -77,14 +73,12 @@ function playCard(cardIndex) {
     updateUI();
 }
 
-// Switch to next player's turn
 function switchTurn() {
     currentPlayer = (currentPlayer + 1) % players.length;
     logAction(`Player ${currentPlayer + 1}'s turn.`);
     updateUI();
 }
 
-// Log action messages
 function logAction(message) {
     const logContent = document.getElementById("log-content");
     const logEntry = document.createElement("div");
@@ -93,7 +87,6 @@ function logAction(message) {
     logContent.scrollTop = logContent.scrollHeight;
 }
 
-// Update UI to show hands and discard pile
 function updateUI() {
     players.forEach((hand, i) => {
         const handContainer = document.getElementById(`hand-${i + 1}`);
@@ -110,6 +103,5 @@ function updateUI() {
         `Discard Pile: ${discardPile[discardPile.length - 1].color} ${discardPile[discardPile.length - 1].value}`;
 }
 
-// Event Listeners
 document.getElementById("draw-card").onclick = drawCard;
 document.getElementById("next-turn").onclick = switchTurn;
